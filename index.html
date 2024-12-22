@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <style>
+        /* CSSを使ってGIFを中央に表示 */
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <img id="random-gif" src="" alt="">
+    </div>
+
+    <script>
+        // GIFのURLを配列に格納
+        const gifs = [
+            "https://static.wixstatic.com/media/b3eff1_c29bd4d9971f4910ae6e6ec5b6d0e082~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_e08fd11028e2490593a4d6923f31d0f5~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_95645a7ae9ba4953aa7dec9112e7260b~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_653920c838074cf0834d21ca06cf8c65~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_c3021834cb8d4b98973a19bed1ba9f40~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_cb52b3a70251480aa26d5eb3abf6575e~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_9a08472ffabf4ec69383b25144f609b3~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_2b98350c67bf4ba8ac8a9b931169da7d~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_c250849c3ef64829b9070eba2de4ae02~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_d46372f227754f2ba6ae0615e176982e~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_fe07282bfe7c4eb8b17b639cb03aa9b6~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_00960049998c4057a027eaf2e280ed43~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_9b85e5b2cef5462ab021aa3036f44944~mv2.gif",  
+            "https://static.wixstatic.com/media/b3eff1_1cca16c3cc6c4662bc4d80788d598b72~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_d683b6522603425c96b63a768a808dc4~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_d683b6522603425c96b63a768a808dc4~mv2.gif",   
+            "https://static.wixstatic.com/media/b3eff1_40f6aa8327ed45a8a4076a95ca9ad751~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_373d8dcab94948f79e7fb2e00f0dd162~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_373d8dcab94948f79e7fb2e00f0dd162~mv2.gif",          
+            "https://static.wixstatic.com/media/b3eff1_a48d698e293a4b508d9eda42dd758cf5~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_2aebb8a5ea064850a5a0a585b2aaa511~mv2.gif",          
+            "https://static.wixstatic.com/media/b3eff1_422e70e82f474149b64d7c0dc42e0703~mv2.gif",          
+            "https://static.wixstatic.com/media/b3eff1_ab742a515fbe4f468d38f7bdd3a98a72~mv2.gif",
+            "https://static.wixstatic.com/media/b3eff1_acf4b737e1cf45d2aee6a4023d85c392~mv2.gif",    
+            "https://static.wixstatic.com/media/b3eff1_b5e7ad70406048e9b751a9ac2cf256e0~mv2.gif",   
+            "https://static.wixstatic.com/media/b3eff1_d0167caef934460d969951a7dcbe3aa0~mv2.gif",             
+            ];
+
+        // 隠しコマンド用のGIF URL
+        const twitterGif = "https://static.wixstatic.com/media/b3eff1_10a488fbf581447f8430d7893d9a7de7~mv2.gif";
+
+        // ランダムなインデックスを生成
+        const randomIndex = Math.floor(Math.random() * gifs.length);
+
+        // 初期表示のランダムなGIFを設定
+        document.getElementById("random-gif").src = gifs[randomIndex];
+
+        // キーボードの入力を監視
+        let inputSequence = "";
+        document.addEventListener("keydown", function(event) {
+            inputSequence += event.key.toLowerCase();
+            
+            // 'twitter'が入力された場合に隠しGIFを表示
+            if (inputSequence.includes("twitter")) {
+                document.getElementById("random-gif").src = twitterGif;
+                inputSequence = "";  // 入力シーケンスをリセット
+            }
+        });
+    </script>
+</body>
+</html>
